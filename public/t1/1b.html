@@ -45,7 +45,21 @@
 
 <script type="text/javascript">
 
-  // your solution here
+  var x = 1;
+  
+  const myInterval = setInterval(function () {
+
+     $(".shape-container").append("<div class='p2-circle bg-purple'></div>");
+    
+      if (x == slides.length)
+          x = 1;
+      else
+          x++;
+  }, 2000);
+
+  $(".btn.btn-light.float-right").click(function() {
+    clearInterval(myInterval);
+  });
 
 </script>
 </body>
