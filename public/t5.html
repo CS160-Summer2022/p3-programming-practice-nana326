@@ -12,6 +12,7 @@
   <!-- let's also include these jquery scripts. -->
   <script src="/vendors/jquery/jquery-3.3.1.min.js"></script>
   <script src="/vendors/jquery-ui/jquery-ui.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 <body>
     <div class="container">
@@ -19,14 +20,86 @@
           <a href="/" class="btn btn-light float-right">
               Back
           </a>
-      </div>
-  </div>
+        </div>
+    </div>
   
   <!-- Your weather forecast here! -->
+  <h1 id="location"></h1>
+  <h2 id="time"></h2>
+  <h1> 3 hours from now</h1>
+  <h2 id="forecasttime1"></h2>
+  <h2 id="forecastweather1"></h2>
+  <h2 id="forecasttemperature1"></h2>
+  <h2 id="forecastwind1"></h2>
+  <h1> 6 hours from now </h1>
+  <h2 id="forecasttime2"></h2>
+  <h2 id="forecastweather2"></h2>
+  <h2 id="forecasttemperature2"></h2>
+  <h2 id="forecastwind2"></h2>
+  <h1> 9 hours from now </h1>
+  <h2 id="forecasttime3"></h2>
+  <h2 id="forecastweather3"></h2>
+  <h2 id="forecasttemperature3"></h2>
+  <h2 id="forecastwind3"></h2>
+  <h1> 12 hours from now </h1>
+  <h2 id="forecasttime4"></h2>
+  <h2 id="forecastweather4"></h2>
+  <h2 id="forecasttemperature4"></h2>
+  <h2 id="forecastwind4"></h2>
+  <h1> 15 hours from now </h1>
+  <h2 id="forecasttime5"></h2>
+  <h2 id="forecastweather5"></h2>
+  <h2 id="forecasttemperature5"></h2>
+  <h2 id="forecastwind5"></h2>
+  <h1> 18 hours from now </h1>
+  <h2 id="forecasttime6"></h2>
+  <h2 id="forecastweather6"></h2>
+  <h2 id="forecasttemperature6"></h2>
+  <h2 id="forecastwind6"></h2>
+  <h1> 21 hours from now </h1>
+  <h2 id="forecasttime7"></h2>
+  <h2 id="forecastweather7"></h2>
+  <h2 id="forecasttemperature7"></h2>
+  <h2 id="forecastwind7"></h2>
+  <h1> 24 hours from now </h1>
+  <h2 id="forecasttime8"></h2>
+  <h2 id="forecastweather8"></h2>
+  <h2 id="forecasttemperature8"></h2>
+  <h2 id="forecastwind8"></h2>
 
   <script type="text/javascript">
-	// your solution here
+    const url = "https://api.openweathermap.org/data/2.5/forecast?id=4464368&appid=992f9c1d93f20adb176359cdb4f6b1ba";
+    function weatherBalloon( cityID ) {
+      var key = '992f9c1d93f20adb176359cdb4f6b1ba';
+      fetch(url)  
+      .then(function(resp) { return resp.json() }) // Convert data to json
+      .then(function(data) {
+        drawWeather(data);
+      })
+      .catch(function() {
+        // catch any errors
+      });
+    }
 
+    function drawWeather( d ) {
+      console.log(d)
+      
+      document.getElementById('location').innerHTML = d.city.name;
+      document.getElementById('time').innerHTML = new Date(d.list[0].dt * 1000);
+      for (let i = 1; i < 9; i++) {
+        document.getElementById('forecasttime' + i).innerHTML = new Date(d.list[i].dt * 1000);
+        document.getElementById('forecastweather' + i).innerHTML = d.list[i].weather[0].description;
+        document.getElementById('forecasttemperature' + i).innerHTML = "Temperature: " + Math.round(parseFloat(d.list[i].main.temp)-273.15) + '&deg;';
+        document.getElementById('forecastwind' + i).innerHTML = "Wind Speed: " + d.list[i].wind.speed+ " mps";
+      }
+
+
+    }
+
+
+    window.onload = function() {
+      weatherBalloon( 4464368 );
+    }
 
 </script>
 </body>

@@ -49,6 +49,21 @@ app.get('/t1/1b', function (req, res) {
 app.get('/t2', function (req, res) {
     res.sendFile(publicPath + '/t2.html');
 });
+app.get('/t2/view1', function (req, res) {
+    res.sendFile(publicPath + '/t2/view1.html');
+});
+app.get('/t2/view2', function (req, res) {
+    res.sendFile(publicPath + '/t2/view2.html');
+});
+app.get('/t2/view3', function (req, res) {
+    res.sendFile(publicPath + '/t2/view3.html');
+});
+app.get('/t2/view4', function (req, res) {
+    res.sendFile(publicPath + '/t2/view4.html');
+});
+app.get('/t2/view5', function (req, res) {
+    res.sendFile(publicPath + '/t2/view5.html');
+});
 app.get('/t3', function (req, res) {
     res.sendFile(publicPath + '/t3.html');
 });

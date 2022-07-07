@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Task 2</title>
-
   <link href="https://fonts.googleapis.com/css?family=Fira+Sans" rel="stylesheet">
   <!-- let's include the css file for bootstrap, then our custom css -->
   <link rel="stylesheet" type="text/css" href="/vendors/bootstrap/css/bootstrap.css" />
@@ -11,25 +9,24 @@
   <!-- let's also include these jquery scripts. -->
   <script src="/vendors/jquery/jquery-3.3.1.min.js"></script>
   <script src="/vendors/jquery-ui/jquery-ui.min.js"></script>
+  <style type="text/css">
+  	.center {
+		  display: block;
+		  margin-left: auto;
+		  margin-right: auto;
+		  width: 50%;
+		}
+  </style>
 
 </head>
 
 <body>
-	<div class="container">
-		    <div class="row">
-      <a href="/" class="btn btn-light float-right">
-          Back
-      </a>
-    </div>
-		<div class="row">
-			<div class="col-12">
-				<h3>Task 2</h3>
-				<ul class="list-group">
-				  <!-- The link <a> below should go to your first view -->
-				  <li class="list-group-item"><a href="http://localhost:8000/t2/view1">Start here</a></li>
-				</ul>
-			</div>
-		</div>
-	</div>
+	<img src="/images/5th.png" usemap="#map4"/>
+    <map name="map4">
+        <area shape="rect" coords="0,0, 375,1334"
+            href="http://localhost:8000/t2/view4"/>
+        <area shape="rect" coords="375, 0, 750, 1334"
+            href="http://localhost:8000/t2/view2"/>
+    </map>
 </body>
 </html>

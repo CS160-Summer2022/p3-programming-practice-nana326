@@ -62,7 +62,53 @@
 		</div>
 	</div>
   <script>
-	  // your solution here
+	  $( function() {
+	    $("#drag-box").draggable({
+	    	classes: {
+	    		"ui-droppable-active": "ui-state-active",
+	        "ui-droppable-hover": "ui-state-hover"
+	    	},
+	    	revert:'invalid'
+	    });
+
+	    $("#drop-box-2").droppable({
+	    	classes: {
+	        "ui-droppable-active": "ui-state-active",
+	        "ui-droppable-hover": "ui-state-hover"
+      	},
+      	over: function(event, ui) {
+      		$('#drag-box').animate({
+      			backgroundColor: "#ff0000"
+      		})
+      	},
+      	drop: function() {
+      		$('#drag-box')
+      		.addClass('dropped')
+      		.animate({
+      			backgroundColor: "#8b0000"
+      		})
+      	}
+	    });
+
+	    $("#drop-box-1").droppable({
+	    	classes: {
+	        "ui-droppable-active": "ui-state-active",
+	        "ui-droppable-hover": "ui-state-hover"
+      	},
+      	over: function(event, ui) {
+      		$('#drag-box').animate({
+      			backgroundColor: "#0000ff"
+      		})
+      	},
+      	drop: function() {
+      		$('#drag-box')
+      		.addClass('dropped')
+      		.animate({
+      			backgroundColor: "#00008b"
+      		})
+      	}
+	    });
+	  });
   </script>
 </body>
 </html>
